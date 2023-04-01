@@ -6,7 +6,7 @@ Microservice API that sends email.
 
 #### Endpoints
 
->**[POST] /sending-email**
+* **[POST] /sending-email**
 
 To send an email.
 
@@ -22,15 +22,15 @@ Sending body reference:
 }
 ```
 
->**[GET] /emails**
+* **[GET] /emails**
 
 To get a list of all emails sent, independently of status of the email.
 
->**[GET] /emails/{_emailId_}**
+* **[GET] /emails/{_emailId_}**
 
 To get a single email based on the ID.
 
-- **_emailId_** -> the ID of the desired email.
+>**_emailId_** -> the ID of the desired email.
 
 
 For further reference, please consider the following sections:
