@@ -2,6 +2,11 @@
 server:
   port: 8080
 
+logging:
+  level:
+    com.ironia.ms.email: TRACE
+#    root: DEBUG
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/ms-email
@@ -15,8 +20,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: ********@gmail.com
-    password: **************
+    username: *********@gmail.com
+    password: ************
     properties:
       mail:
         smtp:
@@ -25,5 +30,5 @@ spring:
             enable: true
 
   rabbitmq:
-    addresses: **********************
+    addresses: *****************
     queue: ms.email

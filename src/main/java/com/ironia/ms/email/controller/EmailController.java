@@ -4,6 +4,8 @@ import com.ironia.ms.email.dto.EmailDto;
 import com.ironia.ms.email.model.EmailModel;
 import com.ironia.ms.email.service.EmailService;
 import jakarta.validation.Valid;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,6 +22,7 @@ import java.util.UUID;
 public class EmailController {
 
     EmailService emailService;
+    Logger logger = LogManager.getLogger(EmailController.class);
 
     EmailController(EmailService emailService) {
         this.emailService = emailService;
@@ -38,6 +41,13 @@ public class EmailController {
     public ResponseEntity<Page<EmailModel>> getAllEmails(
             @PageableDefault(page = 0, size = 5, sort = "emailId", direction = Sort.Direction.DESC) Pageable pageable
     ) {
+        logger.trace("TRACE");
+        logger.debug("DEBUG");
+        logger.info("INFO");
+        logger.warn("WARN");
+        logger.error("ERROR");
+        logger.fatal("FATAL");
+
         Page<EmailModel> emailModelPage = emailService.findAll(pageable);
 
         if(emailModelPage.isEmpty()) {
