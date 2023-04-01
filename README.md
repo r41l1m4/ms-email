@@ -6,7 +6,7 @@ Microservice API that sends email.
 
 #### Endpoints
 
-* **[POST] /sending-email**
+* **[POST] /emails**
 
 To send an email.
 
