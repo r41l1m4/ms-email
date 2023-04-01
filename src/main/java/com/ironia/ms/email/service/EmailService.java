@@ -3,10 +3,13 @@ package com.ironia.ms.email.service;
 import com.ironia.ms.email.enums.StatusEmail;
 import com.ironia.ms.email.model.EmailModel;
 import com.ironia.ms.email.repository.EmailRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 
@@ -21,6 +24,7 @@ public class EmailService {
         this.emailSender = emailSender;
     }
 
+    @Transactional
     public EmailModel sendEmail(EmailModel emailModel) {
 
         emailModel.setSendDateEmail(LocalDateTime.now());
@@ -39,5 +43,9 @@ public class EmailService {
         } finally {
             return emailRepository.save(emailModel);
         }
+    }
+
+    public Page<EmailModel> findAll(Pageable pageable) {
+        return emailRepository.findAll(pageable);
     }
 }
